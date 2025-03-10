@@ -106,6 +106,8 @@ def parse_cell(line):
                 words[0] = words[0][:pos]
             density = float_(words[0])
             region = ' '.join(words[1:])
+        # Add a space for '#'
+        region = re.sub(r'(?<!\s)#', r' #', region)
         return {
             'id': int(g[0]),
             'material': int(g[1]),
